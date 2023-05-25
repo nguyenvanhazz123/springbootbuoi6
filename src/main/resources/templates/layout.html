@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:fragment="link-css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<header th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div style="padding-left: 20px">
+                <a style="" class="navbar-brand" href="#">Home</a>
+                <a style="" class="navbar-brand" th:href="@{/products}">Product</a>
+            </div>
+            <form class="form-inline d-flex" th:action="@{/products/search}" method="GET">
+                <input class="form-control flex-grow-1" type="search" name="keyword" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success flex-grow-1" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</header>
+<div th:insert="~{::${content}}">
+    <!--    noi dung content-->
+</div>
+<footer th:fragment="footer">
+    <div class="card-footer text-center">
+        <hr />
+        Lập trình ứng dụng Java - Nguyễn Văn Hà - @2023
+    </div>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</footer>
+</body>
+</html>
